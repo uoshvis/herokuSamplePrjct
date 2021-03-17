@@ -4,17 +4,9 @@ import time
 import requests
 
 
-def send_message(message):
-    '''
-    Takes the chat id of a telegram bot and the text that was  crawled from the
-    website and sends it to the bot
-    Args: chat_id = string; chat id of the telegram bot,
-          text = string; crawled text to be sent
-    Returns: None
-    '''
+def send_message(token, chat_id, message):
     url = "https://api.telegram.org/bot"
-    token = os.environ.get('TOKEN')
-    chat_id = os.environ.get('CHAT_ID')
+
     if message:
         params = {'chat_id': chat_id, 'text': message}
         response = requests.get(url + token + '/sendMessage', params=params)
@@ -22,7 +14,10 @@ def send_message(message):
 
 
 def send_mess():
-    send_message('Look at this amazing message!')
+    message = 'Look at this amazing message!'
+    token = os.environ.get('TOKEN')
+    chat_id = os.environ.get('CHAT_ID')
+    send_message(token, chat_id, message)
 
 
 def main():
