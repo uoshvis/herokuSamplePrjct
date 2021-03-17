@@ -25,15 +25,15 @@ def send_mess():
     send_message('Look at this amazing message!')
 
 
-def main():
-    # schedule
-    schedule.every(30).seconds.do(send_mess)
-    # run script infinitely
-    while True:
-        schedule.run_pending()
-        time.sleep(1)
+# def main():
+#     # schedule
+schedule.every(10).seconds.do(send_mess)
+# run script infinitely
+while True:
+    schedule.run_pending()
+    time.sleep(1)
 
 
-if __name__ == '__main__':
-    main()
+# if __name__ == '__main__':
+#     main()
 
